@@ -220,6 +220,7 @@ ON payment.rental_id = rental.rental_id
 GROUP BY name;
 
 #8a
+CREATE VIEW Top_Five_Genre AS
 SELECT category.name, sum(payment.amount) as 'Gross Revenue' 
 FROM category
 JOIN film_category 
