@@ -51,19 +51,18 @@ SELECT last_name, COUNT(last_name) AS 'Count by Last Name'
 FROM actor
 GROUP BY last_name;
 
-#4b. List last names of actors and the number of actors who have that last name, but only for names that are shared by at least two actors
+#4b
 SELECT last_name, COUNT(last_name) AS 'Count by Last Name'
 FROM actor
 GROUP BY last_name
 HAVING COUNT(last_name) >= 2;
 
-# 4c. Oh, no! The actor HARPO WILLIAMS was accidentally entered in the actor table as GROUCHO WILLIAMS, the name of Harpo's second cousin's husband's yoga teacher. Write a query to fix the record.
+#4c
 UPDATE actor 
 SET first_name = 'HARPO' 
 WHERE first_name = 'GROUCHO';
 
-#4d. Perhaps we were too hasty in changing GROUCHO to HARPO. It turns out that GROUCHO was the correct name after all! In a single query, if the first name of the actor is currently HARPO, change it to GROUCHO. Otherwise, change the first name to MUCHO GROUCHO, as that is exactly what the actor will be with the grievous error. BE CAREFUL NOT TO CHANGE THE FIRST NAME OF EVERY ACTOR TO MUCHO GROUCHO, HOWEVER! (Hint: update the record using a unique identifier.)
-
+#4d
 SELECT actor_id, first_name, last_name
 FROM actor
 WHERE first_name = 'HARPO' and last_name = 'WILLIAMS';
